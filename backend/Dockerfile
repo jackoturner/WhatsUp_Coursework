@@ -16,9 +16,14 @@ COPY tests/ ./tests/
 COPY pyproject.toml ./
 CMD ["python", "-m", "pytest"]
 
-FROM base AS runtime
+FROM base AS application
 RUN groupadd --system app && useradd --system --gid app app
 COPY --chown=app:app app/ ./app/
 USER app
 EXPOSE 8000
+
+FROM application AS development
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "/app/app", "--reload-delay", "0.5"]
+
+FROM application AS runtime
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
