@@ -1,0 +1,1 @@
+"""WhatsUpTeam backend application."""
