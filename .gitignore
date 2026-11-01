@@ -156,7 +156,3 @@ venv/
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
-
-# Browser test output
-playwright-report/
-test-results/
