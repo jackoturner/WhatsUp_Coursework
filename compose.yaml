@@ -1,7 +1,7 @@
 services:
   database:
     build:
-      context: ./database
+      context: ./infrastructure/database
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE:?Copy .env.example to .env first}
       MYSQL_USER: ${MYSQL_USER:?Set MYSQL_USER in .env}
@@ -26,7 +26,7 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./src/backend
       target: runtime
     environment:
       DB_HOST: database
@@ -54,7 +54,8 @@ services:
 
   frontend:
     build:
-      context: ./frontend
+      context: ./src/frontend
+      target: runtime
     ports:
       - "127.0.0.1:${FRONTEND_PORT:-3000}:8080"
     depends_on:

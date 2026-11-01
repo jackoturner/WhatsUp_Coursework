@@ -9,6 +9,7 @@
   "scripts": {
     "predev": "node scripts/prepare-env.mjs",
     "dev": "docker compose up --build",
+    "build": "docker compose -f compose.yaml build",
     "stop": "docker compose down",
     "logs": "docker compose logs --follow"
   }
