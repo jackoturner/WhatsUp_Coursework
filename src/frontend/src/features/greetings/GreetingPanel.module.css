@@ -1,0 +1,18 @@
+.button {
+  margin-top: 1rem;
+  padding: 0.85rem 1.25rem;
+  border: 0;
+  border-radius: 0.65rem;
+  color: white;
+  background: #155a75;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover { background: #10475c; }
+.button:focus-visible { outline: 3px solid #2182a8; outline-offset: 4px; }
+.button:disabled { cursor: wait; opacity: 0.7; }
+.result { min-height: 3.5rem; margin-top: 1rem; }
+.greeting { margin: 0; font-size: 1.75rem; font-weight: 600; }
+.error { color: #a32727; }
